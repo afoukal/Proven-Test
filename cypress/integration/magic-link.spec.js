@@ -27,7 +27,7 @@ describe('Magic Link Tests' , () => {
         cy.get('.src-components-pages-login-magic-link-form-___style__auth-error___danLj').should('contain', 'Email not found, please take the Skin Genome Quiz')
     })
 
-    it('should display Registered user', ()=> {
+    it('should display confirmation message for Registered user', ()=> {
         cy.get("input[type='email']").clear()
         cy.get("input[type='email']").type(login_username)
         LoginPage.pause(5000)
@@ -35,6 +35,7 @@ describe('Magic Link Tests' , () => {
         cy.contains("Check your email!").should('be.visible')
         cy.contains('You’ll receive a link to log-in.').should('be.visible')
         cy.contains('I did not receive a link').should('be.visible')
+
     })
 
 

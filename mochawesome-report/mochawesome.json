@@ -1,0 +1,157 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-07-07T20:15:58.643Z",
+    "end": "2020-07-07T20:16:10.032Z",
+    "duration": 11389,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2c03d506-e09f-472c-9dc9-e4428abd72b6",
+      "title": "",
+      "fullFile": "cypress\\integration\\magic-link.spec.js",
+      "file": "cypress\\integration\\magic-link.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b44d5da9-a944-4ae6-8be8-c41e15e58034",
+          "title": "Magic Link Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should click on Email me a link",
+              "fullTitle": "Magic Link Tests should click on Email me a link",
+              "timedOut": null,
+              "duration": 2234,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_LoginPage[\"default\"].clickEmailMeLink();",
+              "err": {},
+              "uuid": "d4264279-75bc-470f-bd15-748c7833174d",
+              "parentUUID": "b44d5da9-a944-4ae6-8be8-c41e15e58034",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "main components of the page should be visible",
+              "fullTitle": "Magic Link Tests main components of the page should be visible",
+              "timedOut": null,
+              "duration": 65,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Send me a magic link');\ncy.contains('Please enter your email. We will send you an email with a link to sign in to PROVEN.');\n_LoginPage[\"default\"].displayNewToProven();",
+              "err": {},
+              "uuid": "06acf661-e36d-4313-b562-aac9587204c8",
+              "parentUUID": "b44d5da9-a944-4ae6-8be8-c41e15e58034",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display error message for Unregistered user",
+              "fullTitle": "Magic Link Tests should display error message for Unregistered user",
+              "timedOut": null,
+              "duration": 981,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"input[type='email']\").clear();\ncy.get(\"input[type='email']\").type('invalid@gmail.com');\ncy.get('.src-components-pages-login-magic-link-form-___style__magic-link-wrapper___TFMIJ span').click();\ncy.get('.src-components-pages-login-magic-link-form-___style__auth-error___danLj').should('contain', 'Email not found, please take the Skin Genome Quiz');",
+              "err": {},
+              "uuid": "8c5bb85c-a93f-4033-b464-9c951632b695",
+              "parentUUID": "b44d5da9-a944-4ae6-8be8-c41e15e58034",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display confirmation message for Registered user",
+              "fullTitle": "Magic Link Tests should display confirmation message for Registered user",
+              "timedOut": null,
+              "duration": 6674,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"input[type='email']\").clear();\ncy.get(\"input[type='email']\").type(_config.login_username);\n_LoginPage[\"default\"].pause(5000);\ncy.get('.src-components-pages-login-magic-link-form-___style__magic-link-wrapper___TFMIJ span').click();\ncy.contains(\"Check your email!\").should('be.visible');\ncy.contains('You’ll receive a link to log-in.').should('be.visible');\ncy.contains('I did not receive a link').should('be.visible');",
+              "err": {},
+              "uuid": "4e0a0472-a051-496c-bb3b-eac80cfb4a9a",
+              "parentUUID": "b44d5da9-a944-4ae6-8be8-c41e15e58034",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d4264279-75bc-470f-bd15-748c7833174d",
+            "06acf661-e36d-4313-b562-aac9587204c8",
+            "8c5bb85c-a93f-4033-b464-9c951632b695",
+            "4e0a0472-a051-496c-bb3b-eac80cfb4a9a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9954,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.1.0"
+    }
+  }
+}

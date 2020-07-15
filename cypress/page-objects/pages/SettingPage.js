@@ -1,4 +1,6 @@
-export default class SettingPage{
+import BasePage from "../BasePage";
+
+export default class SettingPage extends BasePage{
 
 
     static edit_button(){

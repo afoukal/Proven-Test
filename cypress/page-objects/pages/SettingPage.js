@@ -55,4 +55,19 @@ export default class SettingPage extends BasePage{
         return cy.get(".src-components-account-setting-shipping-info-___shipping-info__nomargin___x44iR div")
     }
 
+    static credit_card(){
+        return cy.get("input[name='cardnumber']")
+    }
+
+    static card_name(){
+        return cy.get("input[autocomplete='cc-name']")
+    }
+
+    static cc_exp(){
+        return cy.get("input[autocomplete='cc-exp']")
+    }
+
+    static cc_cvv(){
+        return cy.get("input[name='cvc']")
+    }
 }

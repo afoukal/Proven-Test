@@ -1,9 +1,19 @@
-import { url, login_password, login_username } from "../../config"
+import {
+    url,
+    login_password,
+    login_username,
+    getIframeBody,
+    getIframeBody_cvv,
+    getIframeBody_exp_date,
+    getIframeBody_2, getIframeBody_exp_date_2, getIframeBody_cvv_2
+} from "../../config"
 import LoginPage from "../page-objects/pages/LoginPage";
 import Header from "../page-objects/components/Header";
 import MainPage from "../page-objects/pages/MainPage";
 import SettingPage from "../page-objects/pages/SettingPage";
 import HamburgerMenu from "../page-objects/components/Hamburger-menu";
+import 'cypress-iframe'
+import BasePage from "../page-objects/BasePage";
 
 
 describe('Login Failed Tests', () => {
@@ -19,28 +29,28 @@ describe('Login Failed Tests', () => {
         cy.wait(10000)
         Header.clickOnHamburgerMenu()
         cy.contains('Account').click()
-        SettingPage.edit_button().should('have.length', 4)
-        cy.contains('Profile').should('be.visible')
-        SettingPage.edit_button().eq(0).click()
-        SettingPage.name_field().clear()
-        SettingPage.name_field().type('Ana Fo')
-        cy.contains("Save Changes").click()
-        cy.contains('Successfully updated!').should('be.visible')
-        cy.contains('Cancel').click()
-        SettingPage.edit_button().eq(0).click()
-        SettingPage.name_field().clear()
-        cy.contains("Save Changes").click()
-        cy.contains('This field is required.').should('be.visible')
-        SettingPage.name_field().type('Tester Tester')
-        cy.contains('Cancel').click()
-        cy.contains('Successfully updated!').should('not.be.visible')
-        SettingPage.saved_name().should('contain', 'Ana Fo')
-        SettingPage.edit_button().eq(0).click()
-        SettingPage.name_field().clear()
-        SettingPage.name_field().type('Tester Tester')
-        cy.contains("Save Changes").click()
-        cy.contains('Cancel').click()
-        SettingPage.saved_name().should('contain', 'Tester Tester')
+    //     SettingPage.edit_button().should('have.length', 4)
+    //     cy.contains('Profile').should('be.visible')
+    //     SettingPage.edit_button().eq(0).click()
+    //     SettingPage.name_field().clear()
+    //     SettingPage.name_field().type('Ana Fo')
+    //     cy.contains("Save Changes").click()
+    //     cy.contains('Successfully updated!').should('be.visible')
+    //     cy.contains('Cancel').click()
+    //     SettingPage.edit_button().eq(0).click()
+    //     SettingPage.name_field().clear()
+    //     cy.contains("Save Changes").click()
+    //     cy.contains('This field is required.').should('be.visible')
+    //     SettingPage.name_field().type('Tester Tester')
+    //     cy.contains('Cancel').click()
+    //     cy.contains('Successfully updated!').should('not.be.visible')
+    //     SettingPage.saved_name().should('contain', 'Ana Fo')
+    //     SettingPage.edit_button().eq(0).click()
+    //     SettingPage.name_field().clear()
+    //     SettingPage.name_field().type('Tester Tester')
+    //     cy.contains("Save Changes").click()
+    //     cy.contains('Cancel').click()
+    //     SettingPage.saved_name().should('contain', 'Tester Tester')
     })
 
     // it('user should NOT be able to change password, if password does not match', () => {
@@ -140,24 +150,23 @@ describe('Login Failed Tests', () => {
         cy.contains('Payment Info').should('be.visible')
         cy.get(".src-components-account-setting-payment-info-___payment-info__nomargin___2hbOI").should('contain', '4242')
         SettingPage.edit_button().eq(3).click()
-        SettingPage.credit_card().clear().type('5555555555554444')
+        getIframeBody().find("input[name='cardnumber']").type('5555555555554444')
         SettingPage.card_name().clear().type('Tester')
-        SettingPage.cc_exp().clear().type('02/26')
-        SettingPage.cc_cvv().clear().type(123)
-        cy.contains('Save Changes').should('be.visible')
+        getIframeBody_exp_date().find("input[autocomplete='cc-exp']").type('2/21')
+        getIframeBody_cvv().find("input[name='cvc']").type(123)
+        cy.contains('Save Changes').click()
         cy.contains('Successfully updated!').should('be.visible')
         cy.contains('Cancel').click()
         cy.get(".src-components-account-setting-payment-info-___payment-info__nomargin___2hbOI").should('contain', '4444')
         SettingPage.edit_button().eq(3).click()
-        SettingPage.credit_card().clear().type('4242424242424242')
+        getIframeBody_2().find("input[name='cardnumber']").type('4242424242424242')
         SettingPage.card_name().clear().type('Tester')
-        SettingPage.cc_exp().clear().type('02/26')
-        SettingPage.cc_cvv().clear().type(123)
-        cy.contains('Save Changes').should('be.visible')
+        getIframeBody_exp_date_2().find("input[autocomplete='cc-exp']").type('02/22')
+        getIframeBody_cvv_2().find("input[name='cvc']").type(123)
+        cy.contains('Save Changes').click()
         cy.contains('Successfully updated!').should('be.visible')
         cy.contains('Cancel').click()
         cy.get(".src-components-account-setting-payment-info-___payment-info__nomargin___2hbOI").should('contain', '4242')
-        cy.url().should('include', '/account/congratulations');
 
     })
 

@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "reporter" : "mochawesome",
+  "reporter": "mochawesome",
   "scripts": {
     "cy:open": "./node_modules/.bin/cypress open",
     "cy:run": "./node_modules/.bin/cypress run",
     "test": "./node_modules/.bin/cypress run",
-    "headTest" : "npm run test -- --headed",
-    "chromeTest" : "npm run test -- --browser chrome",
-    "recordDashboardTest" : "npm run test --record --key dd5884c4-a169-4af8-8e81-0e517ddeb834 --reporter mocha"
+    "headTest": "npm run test -- --headed",
+    "chromeTest": "npm run test -- --browser chrome",
+    "recordDashboardTest": "npm run test --record --key dd5884c4-a169-4af8-8e81-0e517ddeb834 --reporter mocha"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "cypress": "^4.9.0",
+    "cypress-iframe": "^1.0.1",
     "mocha": "^8.0.1",
     "mochawesome": "^6.1.1"
   }

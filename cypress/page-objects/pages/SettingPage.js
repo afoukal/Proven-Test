@@ -1,41 +1,41 @@
 import BasePage from "../BasePage";
 
-export default class SettingPage extends BasePage{
+export default class SettingPage extends BasePage {
 
 
-    static edit_button(){
-       return cy.get('.src-components-account-setting-setting-item-___setting-item__buttons___2z0_8').find("button[type='button']")
+    static edit_button() {
+        return cy.get('.src-components-account-setting-setting-item-___setting-item__buttons___2z0_8').find("button[type='button']")
     }
 
-    static name_field(){
+    static name_field() {
         return cy.get("input[name='name']")
     }
 
-    static saved_name(){
+    static saved_name() {
         return cy.get(".src-components-account-setting-setting-item-___setting-item__content___OYpRN > :nth-child(2) > span")
     }
 
-    static new_password(){
+    static new_password() {
         return cy.get("input[placeholder='New Password']")
     }
 
-    static new_password_confirm(){
+    static new_password_confirm() {
         return cy.get("input[placeholder='Type new password again']")
     }
 
-    static shipping_name(){
+    static shipping_name() {
         return cy.get("input[name='firstName']")
     }
 
-    static shipping_surname(){
+    static shipping_surname() {
         return cy.get("input[name='lastName']")
     }
 
-    static shipping_address(){
+    static shipping_address() {
         return cy.get("input[name='address1']")
     }
 
-    static shipping_city(){
+    static shipping_city() {
         return cy.get("input[name='city']")
     }
 
@@ -51,23 +51,12 @@ export default class SettingPage extends BasePage{
         return cy.get("input[name='phone']")
     }
 
-    static shipping_details(){
+    static shipping_details() {
         return cy.get(".src-components-account-setting-shipping-info-___shipping-info__nomargin___x44iR div")
     }
 
-    static credit_card(){
-        return cy.get("input[name='cardnumber']")
-    }
 
-    static card_name(){
+    static card_name() {
         return cy.get("input[autocomplete='cc-name']")
-    }
-
-    static cc_exp(){
-        return cy.get("input[autocomplete='cc-exp']")
-    }
-
-    static cc_cvv(){
-        return cy.get("input[name='cvc']")
     }
 }
